@@ -14,7 +14,7 @@
                 <nuxt-link :to="{name: 'reward'}" class="name">打赏</nuxt-link>
             </div>
             <div class="nav_item">
-                <nuxt-link :to="{name: 'index'}" class="name">留言板</nuxt-link>
+                <nuxt-link :to="{name: 'chat'}" class="name">留言板</nuxt-link>
             </div>
             <div class="nav_item">
                 <span class="name" @click="$refs.toast.shows('博主正在努力开发中~')">点歌台</span>
@@ -22,13 +22,16 @@
             <div class="nav_item">
                 <span  class="name" @click="toSystem()">管理</span>
             </div>
+            <div class="nav_item mobilemenu">
+                <nuxt-link :to="{name: 'mobilemenu'}" class="name">菜单</nuxt-link>
+            </div>
         </div>
         <el-dialog
           title="管理员口令"
           :visible.sync="dialogVisible"
           width="300px"
           :before-close="handleClose">
-          <el-input type="password" v-model="password" @keyup.enter.native="sure()"></el-input>
+          <el-input  v-model="password"  type="password" @keyup.enter.native="sure()"></el-input>
           <span slot="footer" class="dialog-footer">
             <el-button @click="dialogVisible = false">取 消</el-button>
             <el-button type="primary" @click="sure()">确 定</el-button>
@@ -104,6 +107,16 @@ export default {
     color: #ff6600;
     text-decoration: none;
     font-weight: 600;
+  }
+  .mobilemenu{
+    display: none;
+  }
+  @media screen and (max-width: 800px) {
+    .mobilemenu{
+      display: flex;
+      
+    }
+    
   }
 </style>>
 

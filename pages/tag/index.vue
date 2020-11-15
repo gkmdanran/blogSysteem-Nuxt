@@ -95,7 +95,7 @@ export default {
       text-align: center;
       border-radius: 10px;
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
       .tag_icon{
       width: 0.533333rem!important;
       height: 0.533333rem!important;

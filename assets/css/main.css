@@ -12,7 +12,7 @@ html {
     overflow-y: auto!important;
 }
 body {
-    cursor: url(https://files-cdn.cnblogs.com/files/miluluyo/cursora.ico),auto;
+    cursor: url(http://localhost:3000/uploads/92f0ac41e0df73ec2ae223d871775679),auto;
 }
 
 a {
@@ -21,10 +21,7 @@ a {
 a:hover{
     text-decoration: none!important;
 }
-.el-scrollbar__wrap{
-    overflow-x: hidden!important;
-    
-}
+
 .v-note-wrapper{
     background-color: transparent!important;
     border: none!important;

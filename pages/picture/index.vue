@@ -184,7 +184,7 @@ export default {
         font-size: 14px;
         color: #ffffff;
     }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 500px) {
         .pic_icon{
             width: 0.533333rem!important;
             height: 0.533333rem!important;

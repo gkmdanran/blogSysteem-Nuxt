@@ -111,7 +111,7 @@ export default {
     margin: 40px auto;
     word-break: break-all;
   }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
     .reward_icon{
       width: 0.533333rem!important;
       height: 0.533333rem!important;

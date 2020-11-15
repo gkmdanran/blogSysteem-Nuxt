@@ -218,7 +218,7 @@ export default {
   /* .md{
     max-width: 100%;
   } */
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     .title{
       font-size: 0.64rem;
       min-height: 1.866667rem;

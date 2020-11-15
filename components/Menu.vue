@@ -1,10 +1,10 @@
 <template>
   <div class="menu">
-    <el-scrollbar style="height:100%"  >
+    <el-scrollbar style="height:100%"  :class="menuscroll==false?'myscroll':''" ref="scrolls">
       <div class="menu_item">
           <div class="menu_title">个人信息</div>
           <div class="user_info">
-            <img src="../static/img/bg.jpg" alt="">
+            <img src="../static/img/headpic.jpg" alt="">
             <div class="name">淡然</div>
             <div class="icon_list">
               <a class="pic" href="https://github.com/gkmdanran" target="_blank">
@@ -58,13 +58,16 @@
       <div class="menu_item" style="marginTop:'5px">
           <div class="menu_title">搜索</div>
           <div class="search">
-            <el-input
-              placeholder="请输入博客标题"
+           
+            <el-autocomplete
+              class="inline-input"
               v-model="query"
-              @keyup.enter.native="searchBlog()"
-            >
-              <i slot="prefix" class="el-input__icon el-icon-search"></i>
-            </el-input>
+              :fetch-suggestions="querySearch"
+              placeholder="请输入标题"
+              clearable
+              :trigger-on-focus="false"
+              @select="handleSelect"
+            ></el-autocomplete>
             <a class="baidu" href="http://www.baidu.com" target="_blank">
               <span class="bdtxt">搜索更多?百度一下 </span>
               <svg t="1605078427785"  class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1775" width="20" height="20">
@@ -107,6 +110,7 @@
 <script>
 import {request} from '~/plugins/axios'
 export default {
+  props:['menuscroll'],
   data(){
     return {
       query:'',
@@ -115,12 +119,28 @@ export default {
     }
   },
   methods:{
-    async searchBlog(){
+    async querySearch(queryString, cb) {
+      var results=[]
       let res=await request({
-        url:`/articles?query=${this.query}&tagquery=&pageNum=1&pageSize=999`
+        url:`/searcharticles?query=${queryString}`
       })
       console.log(res)
+      if(res&&res.code==200){
+        for(let x of res.data){
+          results.push({value:x.title,...x})
+        }
+      }
+      cb(results);
     },
+    handleSelect(item) {
+      this.$router.push({ name: "article-id",
+					params:{
+  						id:item._id
+					}
+      })
+      this.query=''
+    },
+    
     toDetail(id){
       this.$router.push({ name: "article-id",
 					params:{
@@ -142,7 +162,19 @@ export default {
     }, err => {
       console.log(err)
     })
+  },
+  watch: {
+  menuscroll: {
+    immediate: true, // 很重要！！！
+    handler (val) {
+    if(val==false){
+      if(this.$refs.scrolls)
+        this.$refs.scrolls.wrap.scrollTop=0
+    }
+   }
   }
+ },
+  
 }
 </script>
 
@@ -305,6 +337,23 @@ export default {
   .menu .wh_item_date:hover{
     background: transparent!important;
   }
-  
+  .menu .el-scrollbar__wrap{
+    overflow-x: hidden!important;
+    
+  }
+  .menu .myscroll .el-scrollbar__wrap{
+    overflow-x: hidden!important;
+    overflow-y: hidden!important;
+    
+  }
+  .menu .myscroll .menu_item {
+    padding-right: 32px;
+  }
+  .menu .myscroll .el-scrollbar__thumb{
+    opacity: 0!important;
+  }
+  .menu .el-autocomplete{
+    width: 100%;
+  }
 </style>
 

@@ -182,7 +182,7 @@ export default {
     color: #ff6600;
   }
  
-  @media screen and (max-width: 600px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+  @media screen and (max-width: 500px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
       .el-tag{
         margin-right: 0.133333rem;
       }

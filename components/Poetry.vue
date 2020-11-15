@@ -80,7 +80,7 @@ export default {
     margin: 15px auto;
     color: #7f8c93;
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     .poetry{
       margin-bottom: 0.533333rem;
     }
