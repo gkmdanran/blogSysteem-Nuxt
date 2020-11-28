@@ -12,7 +12,7 @@ html {
     overflow-y: auto!important;
 }
 body {
-    cursor: url(http://localhost:3000/uploads/92f0ac41e0df73ec2ae223d871775679),auto;
+    cursor: url(http://localhost:3000/uploads/cursora-1605582890689.ico),auto;
 }
 
 a {
@@ -36,11 +36,26 @@ border: none!important;
 }
 .v-show-content {
     background: transparent!important;
-    padding: 20px 10px!important;
+    padding: 10px 5px!important;
     padding-bottom: 0!important;
 }
 .markdown-body{
     color: #7f8c93!important;
+    word-break: break-all;
+}
+.markdown-body table{
+    word-break: normal;
+    width: 57vw!important;
+    max-width: 880px!important;
+}
+.markdown-body pre{
+    padding: 0!important;
+    width: 57vw;
+    max-width: 880px;
+    font-size: 15px!important;
+}
+.markdown-body code {
+    font-size: 15px!important; 
 }
 .markdown-body h6{
     color: #7f8c93!important;
@@ -67,4 +82,17 @@ border: none!important;
 .page-enter,
 .page-leave-active{
     opacity: 0;
+}
+@media screen and (max-width: 800px) {
+    .markdown-body pre{
+        width: calc(100vw - 30px);
+    }
+    .markdown-body table{
+        width: calc(100vw - 30px)!important;
+    }
+}
+@media screen and (max-width: 500px) {
+    .markdown-body code {
+        font-size:0.346667rem!important; 
+    }
 }

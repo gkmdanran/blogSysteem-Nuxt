@@ -22,6 +22,9 @@
     <div class="icon menu_icon" @click="clickMenu()">
       <i class="el-icon-menu"></i>
     </div>
+    <div class="player">
+      <Player ref="music"/>
+    </div>
   </div>
   
 </template>
@@ -33,13 +36,30 @@ export default {
       isNavFixed:'',
       isMenuFixed:'',
       navHeight:'0px',
-      menuscroll:false
+      menuscroll:false,
+      livepath:'live2d-widget-model-tororo/assets/',
+      jsonpath:'/live2dw/live2d-widget-model-tororo/assets/tororo.model.json'
     }
   },
   mounted() {
     this.handleScroll()
+    if(window.innerWidth>=1500)
+      this.drawEpsilon()
   },
   methods: {
+    drawEpsilon(){
+      window.L2Dwidget.init({
+        pluginRootPath: '/live2dw/',
+        pluginJsPath: 'lib/',
+        pluginModelPath: this.livepath,
+        tagMode: false,
+        debug: false,
+        model: { jsonPath:  this.jsonpath},
+        display: { position: 'left',  "hOffset": 20,width: 150, height: 200 },
+        mobile: { show: true },
+        log: false
+      })
+    },
     clickMenu(){
       if(this.showMenu==true)
         this.showMenu=false
@@ -89,6 +109,12 @@ export default {
     position: sticky;
     top: 60px;
   }
+  .player{
+    position: fixed;
+    left: 2px;
+    top: 2px;
+    z-index: 999999999;
+  }
   .bgc{
     background-image:url('../static/img/bg.jpg');
     content: "";
@@ -131,6 +157,7 @@ export default {
   .menu_icon{
     bottom: 40px;
   }
+  
   .content {
     max-width: 1200px;
     margin: 0 auto;

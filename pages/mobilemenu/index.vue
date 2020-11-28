@@ -23,6 +23,7 @@ export default {
             width: 100%;
             height: 100%;
             overflow: hidden;
+            
     }
     .back {
         z-index: 99;
@@ -45,6 +46,7 @@ export default {
     }
    
     .menu_content{
+        background-color: #d7d7d7;
         margin-top: 40px;
         width: 100%;
         padding-left: 15px;

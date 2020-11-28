@@ -2,7 +2,7 @@
   <div class="poetry">
       <div class="poem-border  poem-left"></div>
       <div class="poem-border poem-right"></div>
-      <h1>念两句诗</h1>
+      <div class="ptitle">念两句诗</div>
       <div class="poem_sentence">{{poerty.content}}</div>
       <div class="poem_info">—— {{poerty.author}}《{{poerty.origin}}》</div>
   </div>
@@ -23,6 +23,7 @@ export default {
         }
     },
     async created(){
+      try {
         let res=await request2({
             url:`https://v1.jinrishici.com/all.json`
         })
@@ -35,6 +36,10 @@ export default {
             content:'天秋木叶下，月冷莎鸡悲。'
           }
         }
+      } catch (error) {
+        
+      }
+        
     }
 }
 </script>
@@ -62,7 +67,7 @@ export default {
   .poem-right {
     right: 0;
   }
-  .poetry h1 {
+  .poetry .ptitle {
     position: relative;
     top: -20px;
     display: inline-block;
@@ -84,7 +89,7 @@ export default {
     .poetry{
       margin-bottom: 0.533333rem;
     }
-    .poetry h1{
+    .poetry .ptitle{
       font-size: 0.533333rem;
       /* margin-top: -0.8rem; */
     }

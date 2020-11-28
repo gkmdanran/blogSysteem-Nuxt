@@ -1,9 +1,9 @@
 <template>
   <div class="header" :style="{backgroundImage: 'url(' + skinUrl + ')'}">
     <div class="title">
-      <h1 >
+      <div >
         <nuxt-link :to="{name: 'index'}" class="name">淡然</nuxt-link>
-      </h1>
+      </div>
       <div class="tips">
         越是漫长，越要淡然。
       </div>
@@ -70,5 +70,5 @@ export default {
     min-height: 50px;
     background: pink;
   }
-</style>>
+</style>
 

@@ -117,21 +117,29 @@ export default {
                     method:'POST',
                     data:this.form
                 })
-                if(res.code&&res.code!=200)
-                    return this.$refs.toast.shows('评论失败,一会儿再试试~')
-                localStorage.setItem('danran_nickname',this.form.chatName)
-                let res2=await request({
-                    url:`/chats?pageNum=1&pageSize=10`
-                })
-                if(res2.code==200){
-                    this.chatList=res2.data.list
-                    this.total=res2.data.total
-                    this.pageNum=res2.data.pageNum
+                console.log(res)
+                    if(res&&res.code==200){
+                        localStorage.setItem('danran_nickname',this.form.chatName)
+                    let res2=await request({
+                        url:`/chats?pageNum=1&pageSize=10`
+                    })
+                    if(res2&&res2.code==200){
+                        this.chatList=res2.data.list
+                        this.total=res2.data.total
+                        this.pageNum=res2.data.pageNum
+                    }
+                    this.form.chatContent=''
+                    this.form.chatWay=''
+                    this.form.chatNumber=''
+                    this.$refs.toast.shows('评论成功,谢谢您~')
                 }
-                this.form.chatContent=''
-                this.form.chatWay=''
-                this.form.chatNumber=''
-                this.$refs.toast.shows('评论成功,谢谢您~')
+                else{
+                    if(res)
+                        this.$refs.toast.shows(res.msg)
+                    else
+                        this.$refs.toast.shows('评论失败，一会儿再试试~')
+                }
+                
             }
       }
   },

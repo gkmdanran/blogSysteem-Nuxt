@@ -5,10 +5,15 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: '个人博客网站，用于记录个人学习笔记，发表个人学习感悟' },
+      { hid: 'keywords', name: 'keywords', content: '个人博客,淡然,前端,Vue,React,Node,Ajax,ElementUI,微信小程序' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script:[
+      {src:"/live2dw/lib/L2Dwidget.min.js",type:'text/javascript',charset:'utf-8'},
+      {src:"/js/flexible.js",type:'text/javascript',charset:'utf-8'}
     ]
   },
 
@@ -21,17 +26,11 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     '@/plugins/element-ui',
-    {
-      src: '~plugins/flexible.js', ssr: false
-    },
-    {
-      src: '~plugins/click.js', ssr: false
-    },
-    {
-      src: '~plugins/filter.js', ssr: true
-    },
+    {src: '~plugins/click.js', ssr: false},
+    {src: '~plugins/filter.js', ssr: true},
     { src: '~plugins/calender.js', ssr: false },
     { src: '@/plugins/mavonEditor', ssr: false },
+    { src: '@/plugins/player', ssr: false },
     { src: '@/plugins/lazy', ssr: false }
   ],
 

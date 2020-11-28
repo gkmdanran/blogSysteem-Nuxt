@@ -87,7 +87,7 @@ export default {
         margin: 10px;
         background: #ffffff;
     }
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 500px) {
         .detail_pic{
             padding: 0 2vw;
         }

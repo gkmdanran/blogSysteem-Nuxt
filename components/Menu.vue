@@ -120,7 +120,7 @@ export default {
   },
   methods:{
     async querySearch(queryString, cb) {
-      var results=[]
+      var results=[{}]
       let res=await request({
         url:`/searcharticles?query=${queryString}`
       })
@@ -354,6 +354,9 @@ export default {
   }
   .menu .el-autocomplete{
     width: 100%;
+  }
+  .el-autocomplete-suggestion.el-popper{
+    min-height: 50px!important;
   }
 </style>
 

@@ -12,8 +12,11 @@
     "@nuxtjs/axios": "^5.12.2",
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
+    "hls.js": "^0.14.16",
     "mavon-editor": "^2.9.0",
     "nuxt": "^2.14.6",
+    "save": "^2.4.0",
+    "vue-aplayer": "^1.6.1",
     "vue-calendar-component": "^2.8.2"
   },
   "devDependencies": {

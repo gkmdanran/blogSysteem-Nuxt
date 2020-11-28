@@ -21,6 +21,17 @@
 import {request} from '~/plugins/axios'
 export default {
     layout:'defaults',
+    head(){
+        var list=[]
+        for (let x of this.tagList){
+            list.push(x.tagName)
+        }
+        return {
+            meta:[
+                {hid: 'keywords',name:"keywords",content:list.join(',')},
+            ]
+        }
+    },
     data(){
         return{
         tagList:[]

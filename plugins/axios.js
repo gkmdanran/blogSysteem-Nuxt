@@ -24,3 +24,7 @@ export  function request2(config) {
     const instance = axios.create()
     return instance(config)
 }
+export  function getMusic(config) {
+    const instance = axios.create()
+    return instance(config)
+}
