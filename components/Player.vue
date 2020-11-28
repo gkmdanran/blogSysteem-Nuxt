@@ -60,20 +60,21 @@ export default {
         const res=await request({url:`/songs`})
         if(res&&res.code==200){
             this.list=res.data
+            var music=res.data[0]
+            try {
+                const song=await getMusic(`https://api.imjad.cn/cloudmusic/?type=song&id=${music.cloudID}&br=128000`)
+                if(song&&song.data.code==200){
+                    music.src=song.data.data[0].url
+                }
+                this.music=music
+                this.current=music
+                this.flag=true
+            } catch (error) {
+                
+            }
         }
         
-        var music=res.data[0]
-        try {
-            const song=await getMusic(`https://api.imjad.cn/cloudmusic/?type=song&id=${music.cloudID}&br=128000`)
-            if(song&&song.data.code==200){
-                music.src=song.data.data[0].url
-            }
-            this.music=music
-            this.current=music
-            this.flag=true
-        } catch (error) {
-            
-        }
+        
         
     },
    

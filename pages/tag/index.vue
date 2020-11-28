@@ -49,7 +49,7 @@ export default {
     async asyncData(){
         const res=await request({url:`/mytags`})
         var tagList=[]
-        if(res.code==200)
+        if(res&&res.code==200)
             tagList=res.data
         return {
             tagList

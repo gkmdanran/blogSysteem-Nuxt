@@ -29,7 +29,7 @@ export default {
                 password:store.state.picPassword
             }
         })
-        if(res.code!=200)
+        if(!res||res.code!=200)
             redirect("/picture")
     },
     layout:'defaults',
@@ -46,7 +46,7 @@ export default {
         })
         var picDetailList=[]
         var title=''
-        if(res.code==200){
+        if(res&&res.code==200){
             title=res.data.title
             var list=res.data.picDetailList.split(',')
             for(let x of list)

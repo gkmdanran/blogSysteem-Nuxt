@@ -60,7 +60,7 @@ export default {
       let res=await request({
       url:`/articles?query=&tagquery=&pageNum=${this.pageNum}&pageSize=10`
       })
-      if(res.code==200)
+      if(res&&res.code==200)
         this.articleList=res.data.list
         this.total=res.data.total
     }
@@ -69,7 +69,7 @@ export default {
     let res=await request({
       url:`/articles?query=&tagquery=&pageNum=1&pageSize=10`
     })
-    if(res.code==200){
+    if(res&&res.code==200){
       var articleList=res.data.list
       var total=res.data.total
     }

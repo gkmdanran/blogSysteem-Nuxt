@@ -88,7 +88,7 @@ export default {
         })
         console.log(res)
         var pictureList=[]
-        if(res.code==200){
+        if(res&&res.code==200){
             pictureList=res.data
         }
         console.log(pictureList)

@@ -89,7 +89,7 @@ export default {
         let res=await request({
             url:`/chats?pageNum=${this.pageNum}&pageSize=10`
         })
-        if(res.code==200){
+        if(res&&res.code==200){
             this.chatList=res.data.list
             this.total=res.data.total
             this.pageNum=res.data.pageNum
@@ -152,7 +152,7 @@ export default {
     var total=0
     var pageNum=1
     console.log(res)
-    if(res.code==200){
+    if(res&&res.code==200){
         chatList=res.data.list
         total=res.data.total
         pageNum=res.data.pageNum

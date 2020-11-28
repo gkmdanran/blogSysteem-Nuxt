@@ -63,7 +63,7 @@ export default {
       let res=await request({
       url:`/tagarticles?query=&tagquery=${this.$route.params.id}&pageNum=${this.pageNum}&pageSize=10`
       })
-      if(res.code==200)
+      if(res&&res.code==200)
         this.articleList=res.data.list
         this.total=res.data.total
     },
@@ -77,7 +77,7 @@ export default {
     var articleList=[]
     var total=0
     var tag={}
-    if(res.code==200){
+    if(res&&res.code==200){
       articleList=res.data.list
       total=res.data.total
       tag=res.tag

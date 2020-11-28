@@ -23,7 +23,7 @@ export default {
   async created(){
     let res=await request({url:`/getskin`})
     console.log(res)
-    if(res.code==200)
+    if(res&&res.code==200)
       this.skinUrl=res.data
     else
       this.skinUrl=require("../static/img/bg.jpg")

@@ -27,7 +27,7 @@ export default {
         let res=await request2({
             url:`https://v1.jinrishici.com/all.json`
         })
-        if(res.data)
+        if(res&&res.data)
           this.poerty=res.data
         else{
           this.poerty={

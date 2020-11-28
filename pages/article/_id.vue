@@ -105,7 +105,7 @@ export default {
             id:this.article._id
           }
         })
-        if(res.code==200){
+        if(res&&res.code==200){
           this.article.star+=1
           this.loved=true
           this.$refs.toast.shows('点赞成功,感谢您的认可~(๑′ᴗ‵๑)')
@@ -125,7 +125,7 @@ export default {
     var article={}
     var tagList=[]
     console.log(res)
-    if(res.code==200){
+    if(res&&res.code==200){
         article=res.data.article
         tagList=res.data.tagList
     }
