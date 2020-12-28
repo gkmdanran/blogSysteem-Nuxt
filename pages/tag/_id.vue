@@ -141,7 +141,7 @@ export default {
     align-items: center;
     font-size: 24px;
     color: #7396a7;
-    word-break: break-all;
+    word-wrap:break-word;
   }
   .article_title span {
     cursor: pointer;

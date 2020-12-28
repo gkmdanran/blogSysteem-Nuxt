@@ -31,7 +31,8 @@ export default {
     { src: '~plugins/calender.js', ssr: false },
     { src: '@/plugins/mavonEditor', ssr: false },
     { src: '@/plugins/player', ssr: false },
-    { src: '@/plugins/lazy', ssr: false }
+    { src: '@/plugins/lazy', ssr: false },
+    { src: '@/plugins/hljs', ssr: false }
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

@@ -154,10 +154,10 @@ export default {
       request({url:`/newarticles`}),
       request({url:`/mytags`})
       ]).then(res => {
-        console.log(res)
-      if(res&&res[0].code==200)
+        // console.log(res)
+      if(res[0]&&res[0].code==200)
         this.newArticleList=res[0].data
-      if(res&&res[1].code==200)
+      if(res[1]&&res[1].code==200)
         this.tagList=res[1].data
     }, err => {
       console.log(err)

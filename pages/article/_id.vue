@@ -8,10 +8,10 @@
         <mavon-editor
           class="md"
           :boxShadow="false"
-          codeStyle="dark"
-          :value="article.context"
+          codeStyle="atelier-plateau-dark"
+          :value="article.mdValue"
           :subfield = "false"
-          :defaultOpen = "'preview'"
+          defaultOpen = "preview"
           :toolbarsFlag = "false"
           :editable="false"
           :scrollStyle="true"
@@ -19,7 +19,7 @@
         ></mavon-editor>
       </client-only>
       <div class="other_href" v-if="article.otherhref!=''">
-        此博客参考链接：
+        参考链接：
         <a :href="article.otherhref" target="_blank">{{article.otherhref}}</a>
       </div>
       <div class="article_tags">
@@ -72,6 +72,7 @@
 
 <script>
 import {request} from '~/plugins/axios'
+import 'mavon-editor/dist/markdown/github-markdown.min.css'
 export default {
   layout:'defaults',
   head(){
@@ -202,7 +203,8 @@ export default {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    word-break: break-all;
+    word-wrap:break-word;
+    line-height: 34px;
   }
   .article_tags{
     padding-left: 10px;
@@ -234,8 +236,9 @@ export default {
   } */
   @media screen and (max-width: 500px) {
     .title{
-      font-size: 0.64rem;
+      font-size: 0.533333rem;
       min-height: 1.866667rem;
+      line-height: 0.906667rem;
     }
     .icons{
       margin: 0 0.4rem;

@@ -15,7 +15,7 @@
             >
         </aplayer>
         </client-only>
-        <div class="close" @click="close" :class="ismini?'closeactive':''">
+        <div class="close" @click="close" :class="[ismini?'closeactive':'',ismini&&!isFirst?'anclass':'']" >
             {{ismini?'&gt;':'&lt;'}}
         </div>
     </div>
@@ -30,12 +30,14 @@ export default {
             music:{},
             flag:false,
             current:{},
-            ismini:true
+            ismini:true,
+            isFirst:true
         }
     },
     methods:{
         close(){
             this.ismini=!this.ismini
+            this.isFirst=false
             console.log(this.$refs.player)
         },
         getCurrent(music){
@@ -82,6 +84,26 @@ export default {
 </script>
 
 <style scoped>
+@keyframes myfirst
+{
+    from  {width:20px ;height: 90px;}
+    to {width:15px ;height: 66px;}
+}
+@-moz-keyframes myfirst
+{
+    from  {width:20px ;height: 90px;}
+    to {width:15px ;height: 66px;}
+}
+@-webkit-keyframes myfirst
+{
+    from  {width:20px ;height: 90px;}
+    to {width:15px ;height: 66px;}
+}
+@-o-keyframes myfirst 
+{
+    from  {width:20px ;height: 90px;}
+    to {width:15px ;height: 66px;}
+}
 .player{
     width: 370px;
     display: flex;
@@ -111,6 +133,13 @@ export default {
 .closeactive {
     width: 15px;
     height: 66px;
+   
+}
+.anclass{
+    animation: myfirst 0.4s ease;
+    -moz-animation: myfirst 0.4s ease;
+    -webkit-animation: myfirst 0.4s ease;
+    -o-animation:myfirst 0.4s ease;
 }
 @media screen and (max-width: 900px) {
     .player {

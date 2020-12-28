@@ -12,6 +12,7 @@
     "@nuxtjs/axios": "^5.12.2",
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
+    "highlight.js": "^10.4.1",
     "hls.js": "^0.14.16",
     "mavon-editor": "^2.9.0",
     "nuxt": "^2.14.6",

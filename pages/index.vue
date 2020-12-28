@@ -66,12 +66,14 @@ export default {
     }
   },
   async asyncData(context){
+    var articleList=[]
+    var total=0
     let res=await request({
       url:`/articles?query=&tagquery=&pageNum=1&pageSize=10`
     })
     if(res&&res.code==200){
-      var articleList=res.data.list
-      var total=res.data.total
+      articleList=res.data.list
+      total=res.data.total
     }
     
     // console.log(articleList)
@@ -104,7 +106,7 @@ export default {
     align-items: center;
     font-size: 24px;
     color: #7396a7;
-    word-break: break-all;
+    word-wrap:break-word;
   }
   .article_title span {
     cursor: pointer;
