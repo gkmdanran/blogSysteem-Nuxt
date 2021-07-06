@@ -51,7 +51,7 @@ export default {
             var list=res.data.picDetailList.split(',')
             for(let x of list)
                 if(x!='')
-                    picDetailList.push('http://localhost:3000/uploads/'+x)
+                    picDetailList.push('http://101.132.68.0:3000/uploads/'+x)
         }
         console.log(picDetailList)
         return {
