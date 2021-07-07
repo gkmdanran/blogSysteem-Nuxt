@@ -61,7 +61,7 @@ export default {
     sure(){
       if(this.password=='gkmdanransisi'){
         this.dialogVisible=false
-        window.open("http://101.132.68.0")
+        window.open("http://101.132.68.0:8080")
       }
       else{
         this.dialogVisible=false
