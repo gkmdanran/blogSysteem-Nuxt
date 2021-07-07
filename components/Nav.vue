@@ -61,7 +61,7 @@ export default {
     sure(){
       if(this.password=='gkmdanransisi'){
         this.dialogVisible=false
-        window.open("http://www.baidu.com")
+        window.open("http://101.132.68.0")
       }
       else{
         this.dialogVisible=false
