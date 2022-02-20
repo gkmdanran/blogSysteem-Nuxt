@@ -16,27 +16,10 @@
             <div class="nav_item">
                 <nuxt-link :to="{name: 'chat'}" class="name">留言板</nuxt-link>
             </div>
-            <div class="nav_item">
-                <span class="name" @click="$refs.toast.shows('博主正在努力开发中~')">点歌台</span>
-            </div>
-            <div class="nav_item">
-                <span  class="name" @click="toSystem()">管理</span>
-            </div>
             <div class="nav_item mobilemenu">
                 <nuxt-link :to="{name: 'mobilemenu'}" class="name">菜单</nuxt-link>
             </div>
         </div>
-        <el-dialog
-          title="管理员口令"
-          :visible.sync="dialogVisible"
-          width="300px"
-          :before-close="handleClose">
-          <el-input  v-model="password"  type="password" @keyup.enter.native="sure()"></el-input>
-          <span slot="footer" class="dialog-footer">
-            <el-button @click="dialogVisible = false">取 消</el-button>
-            <el-button type="primary" @click="sure()">确 定</el-button>
-          </span>
-        </el-dialog>
         <Toast ref="toast"/>
   </div>
   
@@ -46,29 +29,10 @@
 export default {
   data(){
     return {
-      dialogVisible:false,
-      password:'',
     }
   },
   methods:{
-    toSystem(){
-      this.dialogVisible=true
-    },
-    handleClose(){
-      this.dialogVisible=false
-      this.password=''
-    },
-    sure(){
-      if(this.password=='gkmdanransisi'){
-        this.dialogVisible=false
-        window.open("http://101.132.68.0:8080")
-      }
-      else{
-        this.dialogVisible=false
-        this.$refs.toast.shows('您没有权限哦~')
-      }
-      this.password=''
-    }
+    
   }
 }
 </script>

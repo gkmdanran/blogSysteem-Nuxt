@@ -9,12 +9,6 @@ export  function request(config) {
         console.log(err)
     })
     instance.interceptors.response.use(res => {
-        // if (res.data.msg && res.data.msg != '')
-        //     Vue.prototype.$message({
-        //         message: res.data.msg,
-        //         type: res.data.code == 200 ? 'success' : 'error',
-        //         duration: 800
-        //     })
         return res.data
     }, err => {
     })

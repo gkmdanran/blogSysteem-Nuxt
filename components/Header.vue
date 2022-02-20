@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import {request} from '~/plugins/axios'
 export default {
   data(){
     return{
@@ -21,12 +20,7 @@ export default {
     }
   },
   async created(){
-    let res=await request({url:`/getskin`})
-    console.log(res)
-    if(res&&res.code==200)
-      this.skinUrl=res.data
-    else
-      this.skinUrl=require("../static/img/bg.jpg")
+    this.skinUrl=require("../static/img/bg.jpg")
   }
 }
 </script>

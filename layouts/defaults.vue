@@ -22,9 +22,9 @@
     <div class="icon menu_icon" @click="clickMenu()">
       <i class="el-icon-menu"></i>
     </div>
-    <div class="player">
+    <!-- <div class="player">
       <Player ref="music"/>
-    </div>
+    </div> -->
   </div>
   
 </template>
