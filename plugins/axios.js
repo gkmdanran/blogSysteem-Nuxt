@@ -1,7 +1,7 @@
 import * as axios from 'axios'
 export  function request(config) {
     const instance = axios.create({
-        baseURL: 'http://101.132.68.0:3000/blog/api',
+        baseURL: 'http://localhost:8888/blog',
     })
     instance.interceptors.request.use(config => {
         return config
