@@ -27,7 +27,6 @@
 import { request } from "~/plugins/axios";
 export default {
   async middleware({ store, redirect, params }) {
-    console.log(store.state.picPassword);
     let res = await request({
       url: `/photo/check`,
       method: "POST",
