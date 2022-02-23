@@ -144,7 +144,7 @@
             class="inline-input"
             v-model="query"
             :fetch-suggestions="querySearch"
-            placeholder="请输入标题"
+            placeholder="请输入标题或描述"
             clearable
             :trigger-on-focus="false"
             @select="handleSelect"

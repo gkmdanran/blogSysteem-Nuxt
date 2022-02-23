@@ -11,9 +11,9 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
-    script:[
-      {src:"/live2dw/lib/L2Dwidget.min.js",type:'text/javascript',charset:'utf-8'},
-      {src:"/js/flexible.js",type:'text/javascript',charset:'utf-8'}
+    script: [
+      { src: "/live2dw/lib/L2Dwidget.min.js", type: 'text/javascript', charset: 'utf-8' },
+      { src: "/js/flexible.js", type: 'text/javascript', charset: 'utf-8' }
     ]
   },
 
@@ -26,8 +26,8 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     '@/plugins/element-ui',
-    {src: '~plugins/click.js', ssr: false},
-    {src: '~plugins/filter.js', ssr: true},
+    { src: '~plugins/click.js', ssr: false },
+    { src: '~plugins/filter.js', ssr: true },
     { src: '~plugins/calender.js', ssr: false },
     { src: '@/plugins/mavonEditor', ssr: false },
     { src: '@/plugins/player', ssr: false },
@@ -47,8 +47,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
-  loading:'~/components/Loading.vue',
- 
+  loading: '~/components/Loading.vue',
+
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 

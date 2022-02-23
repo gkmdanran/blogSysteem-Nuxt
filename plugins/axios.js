@@ -1,5 +1,5 @@
 import * as axios from 'axios'
-export  function request(config) {
+export function request(config) {
     const instance = axios.create({
         baseURL: 'http://localhost:8888/blog',
     })
@@ -14,11 +14,11 @@ export  function request(config) {
     })
     return instance(config)
 }
-export  function request2(config) {
+export function request2(config) {
     const instance = axios.create()
     return instance(config)
 }
-export  function getMusic(config) {
+export function getMusic(config) {
     const instance = axios.create()
     return instance(config)
 }

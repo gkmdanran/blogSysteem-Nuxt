@@ -181,17 +181,18 @@ export default {
   layout: "defaults",
   head() {
     var list = [];
-    for (let tag of this.article.tagList||[]) {
+    for (let tag of this.article.tagList || []) {
       list.push(tag.name);
     }
     return {
-      title: this.article.title||'',
+      title: this.article.title || "",
       meta: [
         { hid: "keywords", name: "keywords", content: list.join(",") },
         {
           hid: "description",
           name: "description",
-          content: this.article.description&&this.article.description.slice(0, 40),
+          content:
+            this.article.description && this.article.description.slice(0, 40),
         },
       ],
     };
@@ -230,7 +231,7 @@ export default {
       url: `/article/detail?id=${params.id}`,
     });
     var article = {};
-    console.log(res)
+    console.log(res);
     if (res && res.code == 200) {
       article = res.data;
     } else {
