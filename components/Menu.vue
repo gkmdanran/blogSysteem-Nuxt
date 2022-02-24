@@ -253,8 +253,8 @@ export default {
   },
   async created() {
     Promise.all([
-      request({ url: `/article/list` }),
-      request({ url: `/tag/list` }),
+      request({ url: `/article/list/menu` }),
+      request({ url: `/tag/list/menu` }),
     ]).then(
       (res) => {
         if (res[0] && res[0].code == 200) this.newArticleList = res[0].data;

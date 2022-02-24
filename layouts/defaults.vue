@@ -49,7 +49,7 @@ export default {
   },
   mounted() {
     this.handleScroll();
-    if (window.innerWidth >= 1500) this.drawEpsilon();
+    if (window.innerWidth >= 1200) this.drawEpsilon();
   },
   methods: {
     drawEpsilon() {

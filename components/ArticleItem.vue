@@ -18,7 +18,7 @@
     </div>
     <div class="article_tags">
       <el-tag
-        v-for="tag in article.tagList"
+        v-for="tag in article.tag"
         :key="tag.id"
         :type="tag.type"
         size="mini"
@@ -32,6 +32,12 @@
 
 <script>
 export default {
+  props: {
+    article: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {};
   },

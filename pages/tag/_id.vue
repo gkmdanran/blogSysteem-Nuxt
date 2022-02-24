@@ -1,9 +1,16 @@
 <template>
   <div class="detail_tag">
     <div class="tag_title">
-      当前标签：<span :style="{ color: tagColor }">{{ tag.tagName }}</span>
+      当前标签：<span :style="{ color: tagColor }">{{ tag.name }}</span>
     </div>
-    <div class="article"></div>
+    <div class="article">
+      <article-item
+        v-for="article in articleList"
+        :key="article.id"
+        :article="article"
+      >
+      </article-item>
+    </div>
     <el-pagination
       layout="prev, pager, next"
       @current-change="handleCurrentChange"
@@ -32,7 +39,7 @@ export default {
     async handleCurrentChange(val) {
       this.pageNum = val;
       let res = await request({
-        url: `/tagarticles?query=&tagquery=${this.$route.params.id}&pageNum=${this.pageNum}&pageSize=10`,
+        url: `/article/list/tag?id=${this.$route.params.id}&page=${this.pageNum}&size=10`,
       });
       if (res && res.code == 200) this.articleList = res.data.list;
       this.total = res.data.total;
@@ -40,7 +47,7 @@ export default {
   },
   async asyncData(context) {
     let res = await request({
-      url: `/tagarticles?query=&tagquery=${context.params.id}&pageNum=1&pageSize=10`,
+      url: `/article/list/tag?id=${context.params.id}&page=1&size=10`,
     });
     var articleList = [];
     var total = 0;
@@ -48,7 +55,7 @@ export default {
     if (res && res.code == 200) {
       articleList = res.data.list;
       total = res.data.total;
-      tag = res.tag;
+      tag = res.data.tag;
     } else {
       context.redirect("/tag");
     }

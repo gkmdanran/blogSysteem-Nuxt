@@ -1,6 +1,13 @@
 <template>
   <div class="container">
-    <div class="article"></div>
+    <div class="article">
+      <article-item
+        v-for="article in articleList"
+        :key="article.id"
+        :article="article"
+      >
+      </article-item>
+    </div>
     <el-pagination
       layout="prev, pager, next"
       @current-change="handleCurrentChange"
@@ -27,17 +34,17 @@ export default {
     async handleCurrentChange(val) {
       this.pageNum = val;
       let res = await request({
-        url: `/articles?query=&tagquery=&pageNum=${this.pageNum}&pageSize=10`,
+        url: `/article/list/home?&page=${this.pageNum}&size=10`,
       });
       if (res && res.code == 200) this.articleList = res.data.list;
       this.total = res.data.total;
     },
   },
   async asyncData(context) {
-    var articleList = [];
+    let articleList = [];
     var total = 0;
     let res = await request({
-      url: `/articles?query=&tagquery=&pageNum=1&pageSize=10`,
+      url: `/article/list/home?&page=1&size=10`,
     });
     if (res && res.code == 200) {
       articleList = res.data.list;
