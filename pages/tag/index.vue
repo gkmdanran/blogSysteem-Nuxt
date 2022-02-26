@@ -62,7 +62,7 @@ export default {
     },
   },
   async asyncData() {
-    const res = await request({ url: `/tag/list` });
+    const res = await request({ url: `/tag/list/menu` });
     var tagList = [];
     if (res && res.code == 200) tagList = res.data;
     return {

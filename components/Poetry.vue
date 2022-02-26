@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { request2 } from "~/plugins/axios";
+import { requestPoetry } from "~/plugins/axios";
 export default {
   data() {
     return {
@@ -22,7 +22,7 @@ export default {
   },
   async created() {
     try {
-      let res = await request2({
+      let res = await requestPoetry({
         url: `https://v1.jinrishici.com/all.json`,
       });
       if (res && res.data) this.poerty = res.data;

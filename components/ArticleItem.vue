@@ -21,7 +21,7 @@
         v-for="tag in article.tag"
         :key="tag.id"
         :type="tag.type"
-        size="mini"
+        size="small"
         effect="plain"
         disable-transitions
         >{{ tag.name }}
@@ -92,9 +92,6 @@ export default {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   word-break: break-all;
-}
-.article_tags {
-  margin-top: 5px;
 }
 .article_other {
   font-size: 13px;

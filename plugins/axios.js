@@ -14,7 +14,7 @@ export function request(config) {
     })
     return instance(config)
 }
-export function request2(config) {
+export function requestPoetry(config) {
     const instance = axios.create()
     return instance(config)
 }

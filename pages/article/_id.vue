@@ -231,7 +231,6 @@ export default {
       url: `/article/detail?id=${params.id}`,
     });
     var article = {};
-    console.log(res);
     if (res && res.code == 200) {
       article = res.data;
     } else {
